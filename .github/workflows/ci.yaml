@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: 'pbarch/testbed-v4'
-          ref: 'StudioTestbed-2024'
+          ref: 'Aether-DSC-Sphere'
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: false
           path: 'testbed-v4'
