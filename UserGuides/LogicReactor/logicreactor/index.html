@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Logic Reactor - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../styles.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Logic Reactor";
+        var mkdocs_page_input_path = "UserGuides/LogicReactor/logicreactor.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/gettingStarted/">Getting Started With Aether</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Dashboard/dashboard/">Dashboard</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Logic Reactor</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#graph-settings">Graph Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#block-parameters">Block Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blocks">Blocks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#software-inputs">Software Inputs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#button">Button:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#slider">Slider:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#switch">Switch:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#integer">Integer:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#external-inputs">External Inputs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#touch">Touch:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#analog-sensor">Analog Sensor:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#influence">Influence:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#message-input">Message Input:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operators">Operators</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#trigger-threshold">Trigger Threshold:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sequence">Sequence:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#propagation">Propagation:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#math">Math:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#node-controller">Node Controller:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#actuation-visualizer">Actuation Visualizer:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#value-display">Value Display:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subscription">Subscription:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#organization">Organization</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#comments">Comments:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../TechnicalDocs/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/reference/">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Firmware</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/list/">list</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/howtocompile/">Compiling NC Firmware</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Browser</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/preact/">Preact</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">User Guides</li>
+      <li class="breadcrumb-item active">Logic Reactor</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/UserGuides/LogicReactor/logicreactor.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="logic-reactor">Logic Reactor<a class="headerlink" href="#logic-reactor" title="Permanent link">&para;</a></h1>
+<p>The Logic Reactor defines the internal logic of a Node Controller, and provides a graph based interface to configure logical operations and behaviours.</p>
+<h2 id="graph-settings">Graph Settings<a class="headerlink" href="#graph-settings" title="Permanent link">&para;</a></h2>
+<p>The Graph Settings panel shows the currently selected graph, and Node Controller.</p>
+<p><img src="../assets/block_params.png" style="height: auto; width: 40%;" /></p>
+<h2 id="block-parameters">Block Parameters<a class="headerlink" href="#block-parameters" title="Permanent link">&para;</a></h2>
+<p>The Block Parameters panel shows the parameters that can be adjusted on the selected block.</p>
+<p><img src="../assets/block_params.png" style="height: auto; width: 40%;" /></p>
+<p>Individual block parameters are described in detail in the <strong>Blocks</strong> Section below, but some features are common to all blocks:</p>
+<p><strong>Surfaced:</strong> The Surfaced toggle determines whether or not this blocks parameters are made visible in the dashboard. A Node Controller's surfaced parameters appear in the Hardware panel when it is selected in the dashboard.</p>
+<p><img src="../assets/surfacing.png" style="height: auto; width: auto;" /></p>
+<hr />
+<h2 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h2>
+<h3 id="software-inputs">Software Inputs<a class="headerlink" href="#software-inputs" title="Permanent link">&para;</a></h3>
+<p>Software Input blocks create continuous inputs to the logic graph. These inputs can be manipulate via the Logic Editor user interface, or <strong>Surfaced</strong> to be made visible in the Hardware Panel of the Dashboard.</p>
+<h4 id="button"><img src="../assets/button.png" style="height: 32px; width: auto;" /> Button:<a class="headerlink" href="#button" title="Permanent link">&para;</a></h4>
+<p>The button block provides a momentary input of 1.0 when pressed in the Logic Editor. When not pressed the button provides an input of 0.0.</p>
+<h4 id="slider"><img src="../assets/slider.png" style="height: 32px; width: auto;"/> Slider:<a class="headerlink" href="#slider" title="Permanent link">&para;</a></h4>
+<p>The slider provides a continuous input between 0.0 and 1.0 depending on how it is set. Grab the handle to adjust the value in the Logic Editor.</p>
+<h4 id="switch"><img src="../assets/switch.png" style="height: 32px; width: auto;"/> Switch:<a class="headerlink" href="#switch" title="Permanent link">&para;</a></h4>
+<p>The switch provides a continuous input of 0.0 or 1.0 depending on its state. Click the switch in the Logic Editor to toggle its state.</p>
+<h4 id="integer"><img src="../assets/integer.png" style="height: 32px; width: auto;"/> Integer:<a class="headerlink" href="#integer" title="Permanent link">&para;</a></h4>
+<p>The integer input provides a continuous integer value. Use the plus or minus buttons in the Logic Editor to adjust its value.</p>
+<hr />
+<h3 id="external-inputs">External Inputs<a class="headerlink" href="#external-inputs" title="Permanent link">&para;</a></h3>
+<p>Hardware Inputs are driven from the Analog &amp; Digital sensor readings on a Node Controller. When a Node Controller is selected in the </p>
+<h4 id="touch"><img src="../assets/touch.png" style="height: 32px; width: auto;"/> Touch:<a class="headerlink" href="#touch" title="Permanent link">&para;</a></h4>
+<p>The Touch block provides input from the Capacitive Touch sensor of the Node controller. The touch block also provides parameter to remap the raw touch values from the Node controller to a 0.0 to 1.0 range:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rest</td>
+<td>The Baseline touch value, use the "Set Rest" button to set this value when nothing is touching the capacitive touch sensor</td>
+</tr>
+<tr>
+<td>hard</td>
+<td>The Maximum touch value, use the "Set Hard" button to set this value while firmly gripping the capacitive touch sensor</td>
+</tr>
+<tr>
+<td>interpolation</td>
+<td><em>Not yet used</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="analog-sensor"><img src="../assets/adc.png" style="height: 32px; width: auto;"/> Analog Sensor:<a class="headerlink" href="#analog-sensor" title="Permanent link">&para;</a></h4>
+<p>The Analog Sensor block provides input from the Analog Sensor attached to the Node Controller. This block also provides parameters to remap the sensor range:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>floor</td>
+<td>The Baseline value, used for remapping</td>
+</tr>
+<tr>
+<td>ceiling</td>
+<td>The Maximum touch value, used for remapping</td>
+</tr>
+</tbody>
+</table>
+<h4 id="influence"><img src="../assets/influence.png" style="height: 32px; width: auto;" /> Influence:<a class="headerlink" href="#influence" title="Permanent link">&para;</a></h4>
+<p>The Influence Input provides the current influence of the selected Influence Engine on this Node Controller ( <em>Modulated by the Node Controllers React Ability's Subscription level</em> )</p>
+<h4 id="message-input"><img src="../assets/messageInput.png" style="height: 32px; width: auto;" /> Message Input:<a class="headerlink" href="#message-input" title="Permanent link">&para;</a></h4>
+<p>The message input allows the Node controller to listen for input over OSC. The <strong>key</strong> parameter allows you to define the OSC address this block should listen to. Messages with the address format <strong><em>/logic/[key]</em></strong> will be received by this block.</p>
+<hr />
+<h3 id="operators">Operators<a class="headerlink" href="#operators" title="Permanent link">&para;</a></h3>
+<h4 id="trigger-threshold"><img src="../assets/triggerThreshold.png" style="height: 32px; width: auto;" /> Trigger Threshold:<a class="headerlink" href="#trigger-threshold" title="Permanent link">&para;</a></h4>
+<p>Trigger threshold sets a threshold value that must be reached before a value is emitted. <em>Note the trigger value is equal to the input value, as long as the input value is above the trigger Threshold.</em> The Tigger Threshold block has the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trigThreshold</td>
+<td>Threshold value above which this block outputs a trigger value</td>
+</tr>
+<tr>
+<td>trigReset</td>
+<td>Value below which the latch resets</td>
+</tr>
+<tr>
+<td>flagTrigLatch</td>
+<td>If enabled, the input value must drop below the <em>trigRest</em> value before this block will output another trigger value.</td>
+</tr>
+<tr>
+<td>trigCooldownMs</td>
+<td>Defines a cooldown time between the output of trigger values.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sequence"><img src="../assets/sequence.png" style="height: 32px; width: auto;" /> Sequence:<a class="headerlink" href="#sequence" title="Permanent link">&para;</a></h4>
+<p>The Sequence operator plays back a user defined sequence when it receives an Input. Use the <em>Edit Sequence</em> in the block parameters to draw a new sequence.</p>
+<h4 id="propagation"><img src="../assets/propegation.png" style="height: 32px; width: auto;" /> Propagation:<a class="headerlink" href="#propagation" title="Permanent link">&para;</a></h4>
+<p>A delay. The propegation operator starts a timeline when it receives an input, at the specified point on the timeline it outputs an attenuated trigger value.</p>
+<h4 id="math"><img src="../assets/math.png" style="height: 32px; width: auto;" /> Math:<a class="headerlink" href="#math" title="Permanent link">&para;</a></h4>
+<p>The math operator allows you to select a math operation to be done on it's two input values. The available operations are:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Desciption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>+</strong></td>
+<td>Addition</td>
+</tr>
+<tr>
+<td><strong>-</strong></td>
+<td>Subtraction</td>
+</tr>
+<tr>
+<td><strong>X</strong></td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td><strong>÷</strong></td>
+<td>Division <em>Note: Division by 0 will return Infinity</em></td>
+</tr>
+<tr>
+<td><strong>%</strong></td>
+<td>Modulo</td>
+</tr>
+<tr>
+<td><strong>&gt;</strong></td>
+<td>Greater Than <em>Note: Returns 1.0 if True, 0.0 if False</em></td>
+</tr>
+<tr>
+<td><strong>&lt;</strong></td>
+<td>Less Than <em>Note: Returns 1.0 if True, 0.0 if False</em></td>
+</tr>
+<tr>
+<td><strong>==</strong></td>
+<td>Is Equal To <em>Note: Returns 1.0 if True, 0.0 if False</em></td>
+</tr>
+<tr>
+<td><strong>!=</strong></td>
+<td>Is Not Equal To <em>Note: Returns 1.0 if True, 0.0 if False</em></td>
+</tr>
+<tr>
+<td><strong>MAX</strong></td>
+<td>Maximum. Returns the greater of the two values</td>
+</tr>
+<tr>
+<td><strong>MIN</strong></td>
+<td>Minimum. Returns the lesser of the two values</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h3>
+<h4 id="node-controller">Node Controller:<a class="headerlink" href="#node-controller" title="Permanent link">&para;</a></h4>
+<p>Test Text</p>
+<h4 id="actuation-visualizer">Actuation Visualizer:<a class="headerlink" href="#actuation-visualizer" title="Permanent link">&para;</a></h4>
+<p>Test Text</p>
+<h4 id="value-display">Value Display:<a class="headerlink" href="#value-display" title="Permanent link">&para;</a></h4>
+<p>Test Text</p>
+<h4 id="subscription">Subscription:<a class="headerlink" href="#subscription" title="Permanent link">&para;</a></h4>
+<p>Test Text</p>
+<h3 id="organization">Organization<a class="headerlink" href="#organization" title="Permanent link">&para;</a></h3>
+<h4 id="comments">Comments:<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h4>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../../Dashboard/dashboard/" class="btn btn-neutral float-left" title="Dashboard"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../../../TechnicalDocs/" class="btn btn-neutral float-right" title="Home">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2026 20:55:23 UTC">April 15, 2026</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../Dashboard/dashboard/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../TechnicalDocs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

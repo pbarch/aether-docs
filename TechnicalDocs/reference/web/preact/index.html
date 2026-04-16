@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Preact - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../styles.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Preact";
+        var mkdocs_page_input_path = "TechnicalDocs/reference/web/preact.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UserGuides/GettingStarted/gettingStarted/">Getting Started With Aether</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UserGuides/Dashboard/dashboard/">Dashboard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UserGuides/LogicReactor/logicreactor/">Logic Reactor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../../">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Reference</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Firmware</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/list/">list</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../firmware/howtocompile/">Compiling NC Firmware</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Browser</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Preact</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#preact-signals">Preact Signals</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Technical Documentation</li>
+          <li class="breadcrumb-item">Reference</li>
+          <li class="breadcrumb-item">Browser</li>
+      <li class="breadcrumb-item active">Preact</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/TechnicalDocs/reference/web/preact.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="preact">Preact<a class="headerlink" href="#preact" title="Permanent link">&para;</a></h1>
+<p>See the <a href="https://preactjs.com">preact docs</a> for more info
+(note the preact docs use jsx in most places its quite similar to htm but uses <code>{}</code> instead of <code>${})</code></p>
+<p>HTM and Preact are Javascript libraries that help with creating UI components.</p>
+<p>To be able to have reusable components (switches, sliders, etc.) we want some way to create a function that can contain all the logic and markup to render this component.  The way we do this is with preact and htm. We use htm to create the markup, it useless a tagged <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template literal</a> a template literal is just a javascript string that can include interpolations (javascript expressions within them) for example for an untagged template:
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`&lt;div&gt;hello </span><span class="si">${</span><span class="mf">1</span><span class="si">}</span><span class="sb">&lt;/div&gt;`</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">string</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&lt;div&gt;hello 1&lt;/div&gt;&quot;</span>
+</span></code></pre></div>
+the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates">tagged template literal</a> from htm allows us to write regular html as well as including javascript within it using the interpolations (<code>${}</code>).  The element’s children and attributes that you write get passed to preact for rendering. Preact then uses that structure to create a virtual dom (vdom), a tree of the nodes and their attributes and children similar to the dom in the browser. This vdom can then be rendered within a parent element with the render function. To create a component you create a normal javascript function that takes an object with the attributes that can be set on it (sometimes called properties, or props).  This component can be included in any html template like so:  </p>
+<p><div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">html</span><span class="sb">`</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="sb">&lt;</span><span class="si">${</span><span class="nx">Component</span><span class="si">}</span><span class="sb"> attribute1=&quot;test&quot;&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sb">  &lt;h1&gt;child element&lt;/h1&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sb">&lt;//&gt;  </span>
+</span></code></pre></div>
+Where Component is defined as:<br />
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">Component</span><span class="p">({</span><span class="nx">attribute1</span><span class="p">,</span><span class="w"> </span><span class="nx">children</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">html</span><span class="sb">`</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sb">    &lt;div class=</span><span class="si">${</span><span class="nx">attribute1</span><span class="si">}</span><span class="sb">&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sb">      </span><span class="si">${</span><span class="nx">children</span><span class="si">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="sb">    &lt;/div&gt;`</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div>
+Components functions can have other logic and such within them, and when any of their attributes/props change they cause a re-render.  This re-render only changes the vdom, not the actual webpage. Then preact will figure out what changed and then make those changes to the page<br />
+<a href="https://preactjs.com/guide/v10/getting-started">https://preactjs.com/guide/v10/getting-started</a> and the <a href="https://preactjs.com/tutorial">tutorial</a> for more info</p>
+<h2 id="preact-signals">Preact Signals<a class="headerlink" href="#preact-signals" title="Permanent link">&para;</a></h2>
+<p><a href="https://preactjs.com/guide/v10/signals">https://preactjs.com/guide/v10/signals</a></p>
+<h3 id="signalvalue-and-effect">signal.value and effect<a class="headerlink" href="#signalvalue-and-effect" title="Permanent link">&para;</a></h3>
+<p>In concept a signal is just an object with a value key that signals some ui or functions when that value changes. To create a signal you use <code>const num = signal(1)</code> and then access the value with <code>num.value</code> Then one way to have a function that responds to this signal is with the effect function. The effect function runs the callback given to it and tracks which signals were accessed; when those signals values have changed, it reruns the function, the next function is computed which takes a callback to compute a new value from one or more signals and returns a readonly signal whose  value will be recomputed whenever the signals it depends on changes.</p>
+<h3 id="reactive-ui">Reactive UI<a class="headerlink" href="#reactive-ui" title="Permanent link">&para;</a></h3>
+<p>Just like how props changing can cause preact to rerender, if signals are used in an html template it will cause preact to rerender. Signals also create another way to do a “fine grained” update to the ui if you pass the signal <code>object</code> instead of the <code>object.value</code> preact won’t cause a rerender(calling the component function again to regenerate the virtual dom to be diffed). Some of our components take signals as attributes this allows to easily integrate with our wrapped signals for having sliders or toggles be automatically integrated with the database</p>
+<h3 id="hooks-and-wrapped-signals">Hooks and wrapped signals<a class="headerlink" href="#hooks-and-wrapped-signals" title="Permanent link">&para;</a></h3>
+<p>To use signals with preact, we have to use hooks. This is because we want to use the same signal on rerenders, when creating a signal from a component we use the <code>useSignal</code> function which returns the same signal on each render(under the hood it uses the useMemo hook). One common way to use signals is to wrap them to add more functionality to them; this allows for integration with the database and state proxy.</p>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../../firmware/howtocompile/" class="btn btn-neutral float-left" title="Compiling NC Firmware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../tailwind/" class="btn btn-neutral float-right" title="Tailwind CSS">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 30, 2024 22:42:00 UTC">August 30, 2024</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../firmware/howtocompile/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tailwind/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

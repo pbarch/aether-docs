@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Compiling NC Firmware - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../styles.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Compiling NC Firmware";
+        var mkdocs_page_input_path = "TechnicalDocs/reference/firmware/howtocompile.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UserGuides/GettingStarted/gettingStarted/">Getting Started With Aether</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UserGuides/Dashboard/dashboard/">Dashboard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UserGuides/LogicReactor/logicreactor/">Logic Reactor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../../">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Reference</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../">Getting Started</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Firmware</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../list/">list</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Compiling NC Firmware</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#setting-up-the-compilation-buildchain">Setting up the compilation buildchain.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#over-the-air-update">Over The Air Update</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#upload-over-usb">Upload over USB</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#adding-a-board-configuration">Adding a board configuration</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Browser</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/preact/">Preact</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../web/get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../web/hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../web/firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Technical Documentation</li>
+          <li class="breadcrumb-item">Reference</li>
+          <li class="breadcrumb-item">Firmware</li>
+      <li class="breadcrumb-item active">Compiling NC Firmware</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/TechnicalDocs/reference/firmware/howtocompile.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="compiling-nc-firmware">Compiling NC Firmware<a class="headerlink" href="#compiling-nc-firmware" title="Permanent link">&para;</a></h1>
+<h3 id="setting-up-the-compilation-buildchain">Setting up the compilation buildchain.<a class="headerlink" href="#setting-up-the-compilation-buildchain" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="https://docs.platformio.org/en/latest/core/installation/methods/installer-script.html">Install Platformio Cli</a> <code>python get-platformio.py</code> in <code>NCv4_Firmware</code> directory</li>
+<li><a href="https://ziglang.org/learn/getting-started/">Install Zig</a></li>
+<li>In the NCv4_Firmware directory run  <code>zig build arduino</code> to compile the firmware. The compiled binary can be found at <code>NCv4_Firmware/build/NCv4_Firmware.ino.bin</code></li>
+</ol>
+<h3 id="over-the-air-update">Over The Air Update<a class="headerlink" href="#over-the-air-update" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In the <code>NCv4_Firmware</code> directory run <code>zig build arduino</code> to create the OTA bins</li>
+<li>On the Testbed Dashbaord select the node controller you wish to update</li>
+<li>In the Hardware tab select OTA Update to send the new NC.bin to all selected NC's</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For major firmware changes test the update on one NC before uploading to all NC's.</p>
+<p>Issues in major changes can lead to the NC being stuck in a boot loop, and in these cases working firmware will need to be reuploaded over a usb connection.
+Doing this for a large number of NC's is a hassle.</p>
+</div>
+<h3 id="upload-over-usb">Upload over USB<a class="headerlink" href="#upload-over-usb" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Attach the NC to your PC via USB</li>
+<li>in the NCv4_Firmware directory run <code>pio device list</code> to see if the NC is discovered and see it's port</li>
+<li>run <code>pio run -t upload -e [ENV]</code> where [ENV] is the env from <code>platformio.ino</code> for the plugged in board</li>
+</ol>
+<h3 id="adding-a-board-configuration">Adding a board configuration<a class="headerlink" href="#adding-a-board-configuration" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use <code>pio boards list [search term]</code> to find the correct board name</li>
+<li>Add an environment to <code>platformio.ini</code> where <code>board</code> is the name from 1</li>
+<li>Add build flags<ul>
+<li><code>OTA_SUFFIX</code> string for differentiating OTA binaries (required)</li>
+<li>other c macro defintions can be used to control compilation</li>
+</ul>
+</li>
+<li>Add board to <code>build.zig</code> in the array named boards (search for <code>const boards =</code>) using the format <code>.{&lt;board name&gt;, &lt;OTA_SUFFIX&gt;},</code></li>
+</ol>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../list/" class="btn btn-neutral float-left" title="list"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../../web/preact/" class="btn btn-neutral float-right" title="Preact">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 5, 2025 19:37:19 UTC">May 5, 2025</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../list/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../web/preact/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
