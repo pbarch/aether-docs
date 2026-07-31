@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: 'pbarch/testbed-v4'
-          ref: 'main'
+          ref: 'Rpi-Standalone-June2026'
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: false
           path: 'testbed-v4'
