@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Connecting External Tools - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../styles.css" rel="stylesheet" />
+        <link href="../../../docs/overrides/css/custom_admonitions.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Connecting External Tools";
+        var mkdocs_page_input_path = "UserGuides/SendingEvents/sendingIEEvents.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/Setup/">Aether Server Setup - Options</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/StandaloneServer/">Standalone Server - Raspberry Pi</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/CustomServer/">Custom Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/NodeControllerSetup/">Node Controller Setup</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../GettingStarted/gettingStarted/">Getting Started with Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../GettingStarted/KeyConcepts/">Key Concepts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Dashboard</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/dashboard/">Dashboard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/influenceEngines/">Influence Engines:</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../NodeConfig/NodeConfig/">Node Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../LogicReactor/logicreactor/">Logic Reactor</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Connecting External Tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#network-setup">Network Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#osc-message-format">OSC Message Format</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#radiantpulse-createpulse">RadiantPulse — createPulse</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#presence-createpresence">Presence — createPresence</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pheromone-createpheromone">Pheromone — createPheromone</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#python-examples">Python Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#one-shot-events">One-shot events</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#continuous-presence-tracking-loop">Continuous presence tracking loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pheromone-trail-from-a-moving-object">Pheromone trail from a moving object</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#max-msp-examples">Max MSP Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-patch-structure">Basic patch structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#radiantpulse">RadiantPulse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#presence">Presence</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pheromone">Pheromone</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../TechnicalDocs/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/reference/">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Firmware</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/list/">list</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/howtocompile/">Compiling NC Firmware</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Browser</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/preact/">Preact</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">User Guides</li>
+      <li class="breadcrumb-item active">Connecting External Tools</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/UserGuides/SendingEvents/sendingIEEvents.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="connecting-external-tools">Connecting External Tools<a class="headerlink" href="#connecting-external-tools" title="Permanent link">&para;</a></h1>
+<p>This guide explains how to inject Influence Engine events into Aether from any tool that can send OSC UDP — Python scripts, microcontrollers (CircuitPython, MicroPython), Max MSP patches, and similar.</p>
+<p>Typical use cases:
+- A microcontroller reading a radar sensor and emitting <code>createPresence</code> events at detected positions
+- A Max MSP patch that responds to audio energy by triggering <code>createPulse</code> events
+- A Python script driving pheromone trails from algorithmic or generative data</p>
+<hr />
+<h2 id="network-setup">Network Setup<a class="headerlink" href="#network-setup" title="Permanent link">&para;</a></h2>
+<p>Each Node Controller (NC) listens directly for OSC on <strong>UDP port 1212</strong>. Events must be sent to the <strong>broadcast address</strong> of your subnet — either <code>255.255.255.255</code> (global broadcast) or the subnet broadcast address (e.g. <code>192.168.1.255</code>). This is what ensures all NCs on the network receive the event simultaneously.</p>
+<p><strong>Do not send to the server's IP address</strong> for normal use — the server does not forward events to the NCs. Sending to the server IP will reach the server only, not the NCs.</p>
+<p>Your sending machine must be on the same subnet as the NCs.</p>
+<div class="admonition warning">
+<p class="admonition-title">Exception — recording sessions:</p>
+<p>If you need the server to capture events for replay during a performance recording, send to the <strong>server's IP address</strong> using the path <code>/server/&lt;EngineName&gt;/sendEvent</code>. The server logs the event and rebroadcasts it to all NCs. All other message details are identical. This is only needed when recording.</p>
+</div>
+<hr />
+<h2 id="osc-message-format">OSC Message Format<a class="headerlink" href="#osc-message-format" title="Permanent link">&para;</a></h2>
+<p>Every event follows this structure:</p>
+<p><strong>OSC address:</strong> <code>/&lt;EngineName&gt;/sendEvent</code></p>
+<p><strong>Arguments:</strong>
+1. <code>eventName</code> — string — the name of the event</p>
+<ol>
+<li>Repeated key–value pairs:</li>
+<li><code>paramName</code> — string</li>
+<li><code>paramValue</code> — int or float (type matters — see each engine's table below)</li>
+</ol>
+<p>All positions for Influence Engine events are in <strong>World Space millimetres</strong>. You can find the world-space coordinates of a Node by right-clicking on it in the Dashboard plan. For details on how Aether's World Space coordinates are oriented see the <a href="/TechnicalDocs/reference/web/coordinates/">Coordinate Spaces</a></p>
+<hr />
+<h2 id="radiantpulse-createpulse">RadiantPulse — <code>createPulse</code><a class="headerlink" href="#radiantpulse-createpulse" title="Permanent link">&para;</a></h2>
+<p>A radiant pulse is an expanding ring (or sphere) that propagates outward from a point and fades over its lifespan. Pulses accumulate: multiple simultaneous pulses sum at each location, clamped to 0–1.</p>
+<p><strong>OSC address:</strong> <code>/RadiantPulse/sendEvent</code>
+<strong>Event name:</strong> <code>createPulse</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Unit</th>
+<th>Default</th>
+<th>Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Origin X</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Origin Y</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Origin Z</td>
+</tr>
+<tr>
+<td><code>core</code></td>
+<td>int</td>
+<td>mm</td>
+<td>100</td>
+<td>—</td>
+<td>Radius of the solid inner core</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>int</td>
+<td>mm</td>
+<td>600</td>
+<td>100–1500</td>
+<td>Outer radius at emission</td>
+</tr>
+<tr>
+<td><code>speed</code></td>
+<td>float</td>
+<td>m/s</td>
+<td>1.5</td>
+<td>0–3</td>
+<td>Expansion speed</td>
+</tr>
+<tr>
+<td><code>lifespan</code></td>
+<td>int</td>
+<td>ms</td>
+<td>4500</td>
+<td>50–5000</td>
+<td>Time until the pulse is removed</td>
+</tr>
+<tr>
+<td><code>strength</code></td>
+<td>float</td>
+<td>0–1</td>
+<td>0.8</td>
+<td>0–1</td>
+<td>Peak influence</td>
+</tr>
+<tr>
+<td><code>fadeRatio</code></td>
+<td>float</td>
+<td>0–1</td>
+<td>0.7</td>
+<td>0–1</td>
+<td>Fraction of lifespan spent fading</td>
+</tr>
+<tr>
+<td><code>spherical</code></td>
+<td>int</td>
+<td>0/1</td>
+<td>1</td>
+<td>—</td>
+<td><code>1</code> = 3D sphere, <code>0</code> = planar ring</td>
+</tr>
+</tbody>
+</table>
+<p><code>x</code>, <code>y</code>, <code>z</code> are required. Omitted optional parameters fall back to the NC's current RadiantPulse settings.</p>
+<hr />
+<h2 id="presence-createpresence">Presence — <code>createPresence</code><a class="headerlink" href="#presence-createpresence" title="Permanent link">&para;</a></h2>
+<p>A presence event places a Gaussian influence field at a point. Fields from multiple events sum together and fade individually. The influence vector points radially <strong>outward</strong> from each event's position — actuators are pushed away from detected presences.</p>
+<p><strong>OSC address:</strong> <code>/Presence/sendEvent</code>
+<strong>Event name:</strong> <code>createPresence</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Unit</th>
+<th>Default</th>
+<th>Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Centre X</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Centre Y</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Centre Z</td>
+</tr>
+<tr>
+<td><code>sigma</code></td>
+<td>float</td>
+<td>mm</td>
+<td>400</td>
+<td>50–3000</td>
+<td>Gaussian spread (standard deviation)</td>
+</tr>
+<tr>
+<td><code>strength</code></td>
+<td>float</td>
+<td>0–1</td>
+<td>0.8</td>
+<td>0–1</td>
+<td>Peak influence at centre</td>
+</tr>
+<tr>
+<td><code>lifespan</code></td>
+<td>int</td>
+<td>ms</td>
+<td>3000</td>
+<td>100–10000</td>
+<td>Time until the field is removed</td>
+</tr>
+<tr>
+<td><code>fadeRatio</code></td>
+<td>float</td>
+<td>0–1</td>
+<td>0.5</td>
+<td>0–1</td>
+<td>Fraction of lifespan spent fading</td>
+</tr>
+<tr>
+<td><code>spherical</code></td>
+<td>int</td>
+<td>0/1</td>
+<td>0</td>
+<td>—</td>
+<td><code>1</code> = 3D Gaussian falloff, <code>0</code> = planar</td>
+</tr>
+</tbody>
+</table>
+<p>For a person-tracking use case, send one event per detected person per sensor frame (e.g. at 10 Hz for the LD2450 radar). With <code>lifespan</code> = 3000ms and <code>fadeRatio</code> = 0.5, a presence field lingers 1.5 seconds after the person leaves the frame.</p>
+<hr />
+<h2 id="pheromone-createpheromone">Pheromone — <code>createPheromone</code><a class="headerlink" href="#pheromone-createpheromone" title="Permanent link">&para;</a></h2>
+<p>A pheromone event places a Gaussian field that can attract actuators toward the source or repel them away. Pheromone trails accumulate naturally when events are sent at a position repeatedly — they are long-lived by design.</p>
+<p>The influence vector points <strong>toward</strong> the event position for positive (attracting) pheromones, and <strong>away</strong> for negative (repelling) ones.</p>
+<p><strong>OSC address:</strong> <code>/Pheromone/sendEvent</code>
+<strong>Event name:</strong> <code>createPheromone</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Unit</th>
+<th>Default</th>
+<th>Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Centre X</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Centre Y</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>int</td>
+<td>mm</td>
+<td><em>(required)</em></td>
+<td>—</td>
+<td>Centre Z</td>
+</tr>
+<tr>
+<td><code>sigma</code></td>
+<td>float</td>
+<td>mm</td>
+<td>600</td>
+<td>50–3000</td>
+<td>Gaussian spread</td>
+</tr>
+<tr>
+<td><code>strength</code></td>
+<td>float</td>
+<td>0–0.5</td>
+<td>0.05</td>
+<td>0–0.5</td>
+<td>Influence magnitude</td>
+</tr>
+<tr>
+<td><code>positive</code></td>
+<td>int</td>
+<td>0/1</td>
+<td>1</td>
+<td>—</td>
+<td><code>1</code> = attracting (toward source), <code>0</code> = repelling</td>
+</tr>
+<tr>
+<td><code>lifespan</code></td>
+<td>int</td>
+<td>ms</td>
+<td>10000</td>
+<td>100–30000</td>
+<td>Time until the field is removed</td>
+</tr>
+<tr>
+<td><code>fadeRatio</code></td>
+<td>float</td>
+<td>0–1</td>
+<td>0.3</td>
+<td>0–1</td>
+<td>Fraction of lifespan spent fading</td>
+</tr>
+<tr>
+<td><code>spherical</code></td>
+<td>int</td>
+<td>0/1</td>
+<td>0</td>
+<td>—</td>
+<td><code>1</code> = 3D falloff, <code>0</code> = planar</td>
+</tr>
+</tbody>
+</table>
+<p><code>strength</code> is always a positive magnitude (0–0.5); the direction of effect is set by <code>positive</code>. Low <code>strength</code> values (0.05–0.1) work well for trails because fields accumulate with each event sent.</p>
+<hr />
+<h2 id="python-examples">Python Examples<a class="headerlink" href="#python-examples" title="Permanent link">&para;</a></h2>
+<p>Install <a href="https://pypi.org/project/python-osc/"><code>python-osc</code></a>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install python-osc
+</span></code></pre></div>
+<h3 id="one-shot-events">One-shot events<a class="headerlink" href="#one-shot-events" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pythonosc.udp_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleUDPClient</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Broadcast to all NCs on the network</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">SimpleUDPClient</span><span class="p">(</span><span class="s2">&quot;255.255.255.255&quot;</span><span class="p">,</span> <span class="mi">1212</span><span class="p">,</span> <span class="n">allow_broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># RadiantPulse</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;/RadiantPulse/sendEvent&quot;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="s2">&quot;createPulse&quot;</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="s2">&quot;x&quot;</span><span class="p">,</span>         <span class="mi">1500</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="s2">&quot;y&quot;</span><span class="p">,</span>         <span class="mi">2000</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="s2">&quot;z&quot;</span><span class="p">,</span>         <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="s2">&quot;size&quot;</span><span class="p">,</span>      <span class="mi">800</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="s2">&quot;speed&quot;</span><span class="p">,</span>     <span class="mf">1.5</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="s2">&quot;lifespan&quot;</span><span class="p">,</span>  <span class="mi">4500</span><span class="p">,</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="s2">&quot;strength&quot;</span><span class="p">,</span>  <span class="mf">0.8</span><span class="p">,</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="s2">&quot;fadeRatio&quot;</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="s2">&quot;spherical&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">])</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1"># Presence</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;/Presence/sendEvent&quot;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="s2">&quot;createPresence&quot;</span><span class="p">,</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="s2">&quot;x&quot;</span><span class="p">,</span>         <span class="mi">3200</span><span class="p">,</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="s2">&quot;y&quot;</span><span class="p">,</span>         <span class="mi">1100</span><span class="p">,</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="s2">&quot;z&quot;</span><span class="p">,</span>         <span class="mi">900</span><span class="p">,</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="s2">&quot;sigma&quot;</span><span class="p">,</span>     <span class="mf">400.0</span><span class="p">,</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="s2">&quot;strength&quot;</span><span class="p">,</span>  <span class="mf">0.8</span><span class="p">,</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="s2">&quot;lifespan&quot;</span><span class="p">,</span>  <span class="mi">3000</span><span class="p">,</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="s2">&quot;fadeRatio&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="s2">&quot;spherical&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">])</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># Pheromone (attracting trail)</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;/Pheromone/sendEvent&quot;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="s2">&quot;createPheromone&quot;</span><span class="p">,</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    <span class="s2">&quot;x&quot;</span><span class="p">,</span>         <span class="mi">2000</span><span class="p">,</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    <span class="s2">&quot;y&quot;</span><span class="p">,</span>         <span class="mi">1500</span><span class="p">,</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    <span class="s2">&quot;z&quot;</span><span class="p">,</span>         <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    <span class="s2">&quot;sigma&quot;</span><span class="p">,</span>     <span class="mf">600.0</span><span class="p">,</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="s2">&quot;strength&quot;</span><span class="p">,</span>  <span class="mf">0.1</span><span class="p">,</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="s2">&quot;positive&quot;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="s2">&quot;lifespan&quot;</span><span class="p">,</span>  <span class="mi">10000</span><span class="p">,</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="s2">&quot;fadeRatio&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>    <span class="s2">&quot;spherical&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="p">])</span>
+</span></code></pre></div>
+<blockquote>
+<p><strong>Type notes:</strong> <code>python-osc</code> infers OSC types from Python types: <code>int</code> → OSC integer, <code>float</code> → OSC float, <code>str</code> → OSC string. Write <code>400.0</code> not <code>400</code> for float parameters, and use plain <code>int</code> values for <code>x</code>, <code>y</code>, <code>z</code>, <code>lifespan</code>, <code>spherical</code>, and <code>positive</code>.</p>
+</blockquote>
+<h3 id="continuous-presence-tracking-loop">Continuous presence tracking loop<a class="headerlink" href="#continuous-presence-tracking-loop" title="Permanent link">&para;</a></h3>
+<p>This pattern fits a sensor that reports detected positions at a fixed rate (e.g. an LD2450 radar at 10 Hz):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pythonosc.udp_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleUDPClient</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">SimpleUDPClient</span><span class="p">(</span><span class="s2">&quot;255.255.255.255&quot;</span><span class="p">,</span> <span class="mi">1212</span><span class="p">,</span> <span class="n">allow_broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">SENSOR_HEIGHT_MM</span> <span class="o">=</span> <span class="mi">900</span>  <span class="c1"># Z height of detected persons</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">targets</span> <span class="o">=</span> <span class="n">read_sensor</span><span class="p">()</span>  <span class="c1"># returns list of (x_mm, y_mm) in LASD world space</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">targets</span><span class="p">:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;/Presence/sendEvent&quot;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            <span class="s2">&quot;createPresence&quot;</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>            <span class="s2">&quot;x&quot;</span><span class="p">,</span>         <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>            <span class="s2">&quot;y&quot;</span><span class="p">,</span>         <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>            <span class="s2">&quot;z&quot;</span><span class="p">,</span>         <span class="n">SENSOR_HEIGHT_MM</span><span class="p">,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            <span class="s2">&quot;sigma&quot;</span><span class="p">,</span>     <span class="mf">400.0</span><span class="p">,</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>            <span class="s2">&quot;strength&quot;</span><span class="p">,</span>  <span class="mf">0.8</span><span class="p">,</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="s2">&quot;lifespan&quot;</span><span class="p">,</span>  <span class="mi">3000</span><span class="p">,</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>            <span class="s2">&quot;fadeRatio&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>            <span class="s2">&quot;spherical&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="p">])</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># 10 Hz</span>
+</span></code></pre></div>
+<h3 id="pheromone-trail-from-a-moving-object">Pheromone trail from a moving object<a class="headerlink" href="#pheromone-trail-from-a-moving-object" title="Permanent link">&para;</a></h3>
+<p>Dropping pheromone events at each position in a path builds a trail. With low <code>strength</code> and long <code>lifespan</code>, the trail accumulates and fades slowly:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">path_positions</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;/Pheromone/sendEvent&quot;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="s2">&quot;createPheromone&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s2">&quot;x&quot;</span><span class="p">,</span>         <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="s2">&quot;y&quot;</span><span class="p">,</span>         <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="s2">&quot;z&quot;</span><span class="p">,</span>         <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="s2">&quot;sigma&quot;</span><span class="p">,</span>     <span class="mf">600.0</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="s2">&quot;strength&quot;</span><span class="p">,</span>  <span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># low — trail accumulates</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="s2">&quot;positive&quot;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="s2">&quot;lifespan&quot;</span><span class="p">,</span>  <span class="mi">10000</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="s2">&quot;fadeRatio&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="s2">&quot;spherical&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="p">])</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># 20 Hz</span>
+</span></code></pre></div>
+<hr />
+<h2 id="max-msp-examples">Max MSP Examples<a class="headerlink" href="#max-msp-examples" title="Permanent link">&para;</a></h2>
+<p>Max MSP sends OSC using <code>[oscformat]</code> → <code>[udpsend]</code>.</p>
+<p>In Max messages, an atom without a decimal is an integer; with a decimal it is a float. Parameters like <code>speed</code>, <code>sigma</code>, <code>strength</code>, and <code>fadeRatio</code> must have a decimal point (e.g. <code>1.5</code>, <code>400.</code>, <code>0.8</code>). Parameters like <code>x</code>, <code>y</code>, <code>z</code>, <code>lifespan</code>, <code>spherical</code>, and <code>positive</code> must be plain integers.</p>
+<h3 id="basic-patch-structure">Basic patch structure<a class="headerlink" href="#basic-patch-structure" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[message]
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    |
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>[oscformat]
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    |
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>[udpsend 255.255.255.255 1212]
+</span></code></pre></div>
+<p><code>[udpsend]</code> must be opened with the broadcast address before use — either send it a <code>connect 255.255.255.255 1212</code> message, or include it as arguments: <code>[udpsend 255.255.255.255 1212]</code>.</p>
+<hr />
+<h3 id="radiantpulse">RadiantPulse<a class="headerlink" href="#radiantpulse" title="Permanent link">&para;</a></h3>
+<p>Static message box:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/RadiantPulse/sendEvent createPulse x 1500 y 2000 z 0 size 800 speed 1.5 lifespan 4500 strength 0.8 fadeRatio 0.7 spherical 1
+</span></code></pre></div>
+<blockquote>
+<p><em>[screenshot — static RadiantPulse patch]</em></p>
+</blockquote>
+<hr />
+<h3 id="presence">Presence<a class="headerlink" href="#presence" title="Permanent link">&para;</a></h3>
+<p>Static message box:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/Presence/sendEvent createPresence x 3200 y 1100 z 900 sigma 400. strength 0.8 lifespan 3000 fadeRatio 0.5 spherical 0
+</span></code></pre></div>
+<blockquote>
+<p><em>[screenshot — static Presence patch]</em></p>
+</blockquote>
+<p>For a dynamic patch where position comes from number boxes or a tracking source, use <code>[sprintf]</code> to substitute x, y, z at send time:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[number x] [number y] [number z]
+</span></code></pre></div>
+<p>Connect these to the inlets of:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[sprintf /Presence/sendEvent createPresence x %i y %i z %i sigma 400. strength 0.8 lifespan 3000 fadeRatio 0.5 spherical 0]
+</span></code></pre></div>
+<p>The <code>%i</code> specifiers keep the substituted values as integers. The fixed float parameters (<code>400.</code>, <code>0.8</code>, etc.) remain as float atoms in the output list.</p>
+<blockquote>
+<p><em>[screenshot — dynamic Presence patch with number boxes and sprintf]</em></p>
+</blockquote>
+<hr />
+<h3 id="pheromone">Pheromone<a class="headerlink" href="#pheromone" title="Permanent link">&para;</a></h3>
+<p>Static message box (attracting):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/Pheromone/sendEvent createPheromone x 2000 y 1500 z 0 sigma 600. strength 0.1 positive 1 lifespan 10000 fadeRatio 0.3 spherical 0
+</span></code></pre></div>
+<p>To toggle between attracting and repelling, route a <code>[toggle]</code> into a <code>[select 0 1]</code> → two message boxes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/Pheromone/sendEvent createPheromone x 2000 y 1500 z 0 sigma 600. strength 0.1 positive 1 lifespan 10000 fadeRatio 0.3 spherical 0
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>/Pheromone/sendEvent createPheromone x 2000 y 1500 z 0 sigma 600. strength 0.1 positive 0 lifespan 10000 fadeRatio 0.3 spherical 0
+</span></code></pre></div>
+<blockquote>
+<p><em>[screenshot — Pheromone patch with attract/repel toggle]</em></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../../LogicReactor/logicreactor/" class="btn btn-neutral float-left" title="Logic Reactor"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../../../TechnicalDocs/" class="btn btn-neutral float-right" title="Home">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 9, 2026 21:19:03 UTC">July 9, 2026</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../LogicReactor/logicreactor/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../TechnicalDocs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Getting Started with Aether - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../styles.css" rel="stylesheet" />
+        <link href="../../../docs/overrides/css/custom_admonitions.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Getting Started with Aether";
+        var mkdocs_page_input_path = "UserGuides/GettingStarted/gettingStarted.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/Setup/">Aether Server Setup - Options</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/StandaloneServer/">Standalone Server - Raspberry Pi</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/CustomServer/">Custom Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/NodeControllerSetup/">Node Controller Setup</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Getting Started</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Getting Started with Aether</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-aether-web-ui">Accessing Aether Web UI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#aethers-dashboard">Aether's Dashboard</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#connecting-and-positioning-new-node-controllers">Connecting and Positioning New Node Controllers.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subscribing-to-an-influence-engine">Subscribing to an Influence Engine</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuring-a-node-controller">Configuring a Node Controller</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#behaviour-logic">Behaviour Logic</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#testing-sensor-input">Testing Sensor Input</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setup-a-basic-trigger">Setup a Basic Trigger</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#editing-sequences">Editing Sequences</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cascading-sequences">Cascading Sequences</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-virtual-inputs">Using Virtual Inputs</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../KeyConcepts/">Key Concepts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Dashboard</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/dashboard/">Dashboard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/influenceEngines/">Influence Engines:</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../NodeConfig/NodeConfig/">Node Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../LogicReactor/logicreactor/">Logic Reactor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SendingEvents/sendingIEEvents/">Connecting External Tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../TechnicalDocs/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/reference/">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Firmware</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/list/">list</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/howtocompile/">Compiling NC Firmware</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Browser</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/preact/">Preact</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">User Guides</li>
+          <li class="breadcrumb-item">Getting Started</li>
+      <li class="breadcrumb-item active">Getting Started with Aether</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/UserGuides/GettingStarted/gettingStarted.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="getting-started-with-aether">Getting Started with Aether<a class="headerlink" href="#getting-started-with-aether" title="Permanent link">&para;</a></h1>
+<p>This guide walks through the basic operation of Aether's Dashboard, Node Configuration, and Logic Reactor, to setup a device with simple responsive behaviour.</p>
+<div class="admonition note">
+<p class="admonition-title">Setup from Scratch</p>
+<p>If you are setting up Aether from scratch, please see the <a href="../../SettingUp/Setup/">Server Setup</a> and <a href="../../SettingUp/NodeControllerSetup/">Node Controller Setup</a> pages.</p>
+<p>If you are participating in a workshop or working with an existing Testbed then a Server and set of Node Controllers will already be in place.</p>
+</div>
+<h2 id="accessing-aether-web-ui">Accessing Aether Web UI<a class="headerlink" href="#accessing-aether-web-ui" title="Permanent link">&para;</a></h2>
+<p>To access Aethers web interfaces, connect a computer or laptop to the "Aether-Local" Wifi network, open Google Chrome web browser and enter the following in the address bar <code>172.23.4.1:3022</code></p>
+<p>This will bring you to the Aether Log-In page:</p>
+<p><img src="../assets/LogInScreen.png" style="width: auto;" /></p>
+<p>From this page you can log in, if you have previously registered an account with this server, or Register a new account.</p>
+<h2 id="aethers-dashboard">Aether's Dashboard<a class="headerlink" href="#aethers-dashboard" title="Permanent link">&para;</a></h2>
+<p>After logging in or registering you will have access to Aethers web interface. The first page you will see is <a href="../../Dashboard/dashboard/">Aether's Dashboard.</a></p>
+<p><img src="../assets/Dashboard.png" style="width: auto;" /></p>
+<p><a href="../../Dashboard/dashboard/">Aether's Dashboard</a> allows you to manage the arrangement of <a href="../KeyConcepts/#node-controllers">Node Controllers</a>, Devices that Aether can interact with, as well as the parameters of <a href="../KeyConcepts/#influence-engines">Influence Engines</a>, weather-like environmental algorithms that impact each devices behaviour.</p>
+<h3 id="connecting-and-positioning-new-node-controllers">Connecting and Positioning New Node Controllers.<a class="headerlink" href="#connecting-and-positioning-new-node-controllers" title="Permanent link">&para;</a></h3>
+<p>Once a new device is powered on and connects to the Aether Server, it will be added to the origin point of the dashboard. Once the Node Controller appears in the dashboard, it can be dragged and dropped into the desired position.</p>
+<p><img src="../assets/newDeviceConnections.gif" style="width: auto;" /></p>
+<p>if you can't drag and drop to move Node Controllers, make sure that the "Lock Positions" toggle in unchecked in the bottom left settings bar</p>
+<p><img src="../assets/LockPositions.png" style="width: auto;" /></p>
+<hr />
+<h3 id="subscribing-to-an-influence-engine">Subscribing to an Influence Engine<a class="headerlink" href="#subscribing-to-an-influence-engine" title="Permanent link">&para;</a></h3>
+<p>To test that your new device is communicating with Aether, we will try <a href="../KeyConcepts/#subscriptions">subscribing</a> it to the <a href="../../Dashboard/influenceEngines/#ambient-waves">Ambient Waves</a> <a href="../KeyConcepts/#influence-engines">Influence Engine</a>. Subscribing a device to an influence engine allows it to be sensitive to, and respond to, changes in that Influence Engine.</p>
+<div class="grid-container">
+    <div class="grid-item">
+        <figure>
+            <img src="../assets/SubscribeAmbient.gif" style="width: auto;" /> 
+            <figcaption> Subscribing to Ambient Waves in the Dashboard </figcaption>
+        </figure>
+    </div>
+    <div class="grid-item">
+        <figure>
+            <img src="../assets/SubscribedNC.gif" style="width: auto;" />
+            <figcaption> Effects of Subscribing to Ambient Waves </figcaption>
+        </figure>
+    </div>
+</div>
+
+<p>To read more about the variety of Influence Engines available with Aether, see the <a href="../../Dashboard/influenceEngines/">Influence Engines Section</a> of the documentation.</p>
+<hr />
+<h2 id="configuring-a-node-controller">Configuring a Node Controller<a class="headerlink" href="#configuring-a-node-controller" title="Permanent link">&para;</a></h2>
+<p>A Node Controllers configuration and placement of Actuators in Aether should accurately reflect the physical layout of actuators in the real world. To arrange and configure a Node Controller, we can use the <a href="../../NodeConfig/NodeConfig/">Node Configuration Editor</a></p>
+<p><img src="../assets/NodeConfig.png" style="width: auto;" /></p>
+<p>In the Node Configuration Editor you can drag and drop components from the left side menu to create an arrangement of actuators, and connect those actuators to a Node Controller. To configure a Node controller:</p>
+<p>1) Make note of the Node Controllers ID number in the Dashboard.</p>
+<p>2) Go to the Node Configuration page,</p>
+<p>3) Select the Node ID in the <code>Select NC</code> Dropdown</p>
+<p>4) Drag and Drop a Node Controller block into the workspace.</p>
+<p>5) Drag and Drop Devices into the workspace</p>
+<ul>
+<li>Device parameters, such as the devices type, can be configured in the Device Parameters side menu</li>
+</ul>
+<p>6) Connect each device to the desired port on the Node Controller Block</p>
+<p>7) Use the export button to export the configuration for this Node Controller to the Database</p>
+<p><img src="../assets/nodeconfigdemo.gif" style="width: auto;" /></p>
+<h2 id="behaviour-logic">Behaviour Logic<a class="headerlink" href="#behaviour-logic" title="Permanent link">&para;</a></h2>
+<p>So far we have setup a Node Controller to react passively to the external Influence Engine algorithms. To create more complete behaviors, we can use the Logic Reactor editor to create internal behaviours for a Node Controller. The Logic Reactor is also where we can configure which sensors are connected to a Node Controller, and how those sensor inputs are used. </p>
+<p>The Logic editior is a visual scripting environment where logic blocks can be chained together to create complex behaviour. A block may have inputs (located on their top or left sides), outputs (located on their right or bottom sides), as well as some parameters (located in the block parameter side menu).</p>
+<p>In this getting started guide we will configure the logic editor take sensor input from the Sensor Expansion hub, and use that sensor input to trigger a cascading set of lights. For a more comprehensive list of Logic Blocks and their functionality, see the <a href="../../LogicReactor/logicreactor/">Logic Reactor</a> page of the documentation. </p>
+<p>To configure a sensor to trigger outputs on a Node Controller:</p>
+<h4 id="testing-sensor-input">Testing Sensor Input<a class="headerlink" href="#testing-sensor-input" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Ensure the node controller is powered on, with an IR Sensor plugged into the first port of the Sensor Expansion Hub</p>
+</li>
+<li>
+<p>Make note of the Node Controllers ID number in the Dashboard.</p>
+</li>
+<li>
+<p>Go to the Logic Reactor page,</p>
+</li>
+<li>
+<p>Select the Node ID in the <code>Select NC</code> Dropdown</p>
+</li>
+<li>
+<p>Save a preset with a name of your choice</p>
+</li>
+<li>
+<p>Drag and Drop a Node Controller block into the workspace.</p>
+</li>
+<li>
+<p>Drag and Drop a Sensor Hub block into the workspace</p>
+</li>
+<li>
+<p>Drag a Number Output block into the workspace</p>
+</li>
+<li>
+<p>Connect the first port of the sensor hub to the Number output block</p>
+</li>
+<li>
+<p>Check that the output value changes when you move your hand in front of the sensor</p>
+</li>
+</ul>
+<p><img src="../assets/test sensor.gif" style="width: auto;" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you aren't seeing output from the Sensor Hub, make sure you have the correct Node Controller selected, and try hitting the upload button. If the block still isn't responding, try hitting the Reset TCP button in the Hardware -&gt; Troubleshooting Tools menu on the dashboard.</p>
+</div>
+<h4 id="setup-a-basic-trigger">Setup a Basic Trigger<a class="headerlink" href="#setup-a-basic-trigger" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Drag a Trigger Threshold block into the workspace.</p>
+</li>
+<li>
+<p>Drag a Sequence Playback block into the workspace.</p>
+</li>
+<li>
+<p>Connect the first output of the Sensor Hub to the input of the Trigger Threshold Block, </p>
+</li>
+<li>
+<p>Connect the output of the Trigger Threshold block to the input of the Sequence Playback block.</p>
+</li>
+<li>
+<p>Connect the Output of the Sequence Playback block to the first input of the NC block.</p>
+</li>
+<li>
+<p>Add a Level Visualizer and connect it to the first output of the NC block</p>
+</li>
+</ul>
+<p>Moving your hand in front of the sensor should now cause the first Actuator of the Node Controller to playback a sequence.</p>
+<p><img src="../assets/basictrigger.gif" style="width: auto;" /></p>
+<h4 id="editing-sequences">Editing Sequences<a class="headerlink" href="#editing-sequences" title="Permanent link">&para;</a></h4>
+<p>You can edit the sequences used in the Sequence Playback block by going to the Block Parameters menu and selecting the Edit Sequence button</p>
+<p><img src="../assets/editSeq.gif" style="width: auto;" /></p>
+<h4 id="cascading-sequences">Cascading Sequences<a class="headerlink" href="#cascading-sequences" title="Permanent link">&para;</a></h4>
+<p>You can create a cascade of sequences by using the Propagation block to offset the playback of multiple sequences.</p>
+<p><img src="../assets/cascadeSeq.gif" style="width: auto;" /></p>
+<h4 id="using-virtual-inputs">Using Virtual Inputs<a class="headerlink" href="#using-virtual-inputs" title="Permanent link">&para;</a></h4>
+<p>If your prototyping behaviour without a Node Controller connected, you can use the Virtual Input Buttons to simulate Sensor inputs </p>
+<p><img src="../assets/virtual inputs.gif" style="width: auto;" /></p>
+<p>Try combining logic blocks in unique ways to see what kinds of behaviour you can create.</p>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../../SettingUp/NodeControllerSetup/" class="btn btn-neutral float-left" title="Node Controller Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../KeyConcepts/" class="btn btn-neutral float-right" title="Key Concepts">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 15:55:45 UTC">August 4, 2026</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../SettingUp/NodeControllerSetup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../KeyConcepts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

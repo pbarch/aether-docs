@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Node Configuration - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../styles.css" rel="stylesheet" />
+        <link href="../../../docs/overrides/css/custom_admonitions.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Node Configuration";
+        var mkdocs_page_input_path = "UserGuides/NodeConfig/NodeConfig.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/Setup/">Aether Server Setup - Options</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/StandaloneServer/">Standalone Server - Raspberry Pi</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/CustomServer/">Custom Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SettingUp/NodeControllerSetup/">Node Controller Setup</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../GettingStarted/gettingStarted/">Getting Started with Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../GettingStarted/KeyConcepts/">Key Concepts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Dashboard</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/dashboard/">Dashboard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/influenceEngines/">Influence Engines:</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Node Configuration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#node-menu">Node Menu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#device-parameters-menu">Device Parameters Menu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blocks">Blocks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#devices">Devices:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#node-controller">Node Controller:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pegboard-guides">Pegboard Guides:</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../LogicReactor/logicreactor/">Logic Reactor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SendingEvents/sendingIEEvents/">Connecting External Tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../TechnicalDocs/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/reference/">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Firmware</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/list/">list</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/howtocompile/">Compiling NC Firmware</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Browser</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/preact/">Preact</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">User Guides</li>
+      <li class="breadcrumb-item active">Node Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/UserGuides/NodeConfig/NodeConfig.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="node-configuration">Node Configuration<a class="headerlink" href="#node-configuration" title="Permanent link">&para;</a></h1>
+<p>The Node Configuration Editor allows you to setup which actuators are connected to a Node Controller, and how they are arranged spatially.</p>
+<p><img src="../assets/NodeConfig.png" style="width: auto;" /></p>
+<p>In the Node Configuration Editor you can drag and drop components from the left side menu to create an arrangement of actuators, and connect those actuators to a Node Controller to assign them to the connected actuator port.</p>
+<h3 id="node-menu">Node Menu<a class="headerlink" href="#node-menu" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/nodeMenu.png" style="width: auto;" /></p>
+<p>General Settings such as the current preset, and currently selected Node Controller can be found in the Node Menu. This menu also lists the IP Address and MAC address of the currently selected Node Controller. The Export Button will export the current configuration to the Node Controller.</p>
+<h3 id="device-parameters-menu">Device Parameters Menu<a class="headerlink" href="#device-parameters-menu" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/deviceMenu.png" style="width: auto;" /></p>
+<p>The Device Parameters Menu allows you to change the properties of the currently Selected Device. Here you can select the Devices Type (Light, Vibration or Motor) as well as set the devices Z_HEIGHT, which is the height of the device above floor level in millimeters.</p>
+<h3 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h3>
+<p>3 types of blocks can be dragged and dropped into the configuration workspace:</p>
+<h4 id="devices"><img src="../assets/device.png" style="height: 32px; width: auto;" /> Devices:<a class="headerlink" href="#devices" title="Permanent link">&para;</a></h4>
+<p>Devices can be positioned in space and connected to the Node Controller Block to define which Actuator Pin they are connected too. Devices can be one of 3 types Light, Vibration or Motor. The device type can be set in the Device Parameters Menu.</p>
+<h4 id="node-controller"><img src="../assets/nodeController.png" style="height: 32px; width: auto;" /> Node Controller:<a class="headerlink" href="#node-controller" title="Permanent link">&para;</a></h4>
+<p>The Node Controller block has 6 Actuator pins which devices can be connected to. The Node Controller also defines the origin of the layout space, all device positions are relative to the Node Controller block.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only one Node Controller block should be added to the workspace, adding more than 1 Node Controller block to the workspace can cause export errors.</p>
+</div>
+<h4 id="pegboard-guides"><img src="../assets/peg_guides.png" style="height: 32px; width: auto;" /> Pegboard Guides:<a class="headerlink" href="#pegboard-guides" title="Permanent link">&para;</a></h4>
+<p>The Pegboard guides provide a reference image of the LASG Kit Pegboards to use as a scale reference when laying out devices. Both the Hex Pegboard and Tri Pegboard are provided, and the type can be toggled by selecting a Pegboard guide and using the dropdown in the Device Parameters Menu.</p>
+<p><img src="../assets/NodeConfig.png" style="width: auto;" /></p>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../../Dashboard/influenceEngines/" class="btn btn-neutral float-left" title="Influence Engines:"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../../LogicReactor/logicreactor/" class="btn btn-neutral float-right" title="Logic Reactor">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 16:46:31 UTC">August 4, 2026</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../Dashboard/influenceEngines/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../LogicReactor/logicreactor/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

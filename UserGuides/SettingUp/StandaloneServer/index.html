@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Standalone Server - Raspberry Pi - Aether : Spatial Behavior Software Suite</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../styles.css" rel="stylesheet" />
+        <link href="../../../docs/overrides/css/custom_admonitions.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Standalone Server - Raspberry Pi";
+        var mkdocs_page_input_path = "UserGuides/SettingUp/StandaloneServer.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Aether : Spatial Behavior Software Suite
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">User Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Setup</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../Setup/">Aether Server Setup - Options</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Standalone Server - Raspberry Pi</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-node-controllers">Adding Node Controllers.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#troubleshooting-the-standalone-server">Troubleshooting the Standalone Server:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expanding-the-number-of-connected-devices">Expanding the Number of Connected Devices</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../CustomServer/">Custom Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NodeControllerSetup/">Node Controller Setup</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../GettingStarted/gettingStarted/">Getting Started with Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../GettingStarted/KeyConcepts/">Key Concepts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Dashboard</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/dashboard/">Dashboard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Dashboard/influenceEngines/">Influence Engines:</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../NodeConfig/NodeConfig/">Node Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../LogicReactor/logicreactor/">Logic Reactor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SendingEvents/sendingIEEvents/">Connecting External Tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technical Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../TechnicalDocs/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Guides</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/editingAether/editingAether/">Editing Aether</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/testbed_setup/testbed_setup/">Advanced Testbed Setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/influence_engine/creatingAnInfluenceEngine/">Creating an Influence Engine</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/creatingLogicBlocks/creatingablock/">Creating a Logic Reactor Block.</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/guide/buildSetup/buildSetup/">Setting up the Build System</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../TechnicalDocs/reference/">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Firmware</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/InfluenceEngine/">Influence Engine</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/Registry/">Registry</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/string_map/">string_map</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/table/">table</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/option/">option</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/list/">list</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/firmware/howtocompile/">Compiling NC Firmware</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Browser</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/preact/">Preact</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/tailwind/">Tailwind CSS</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/observable/">Observable</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Accessing Database (and State-Proxy) Values</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/get/">Using Get() and get helper functions</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../TechnicalDocs/reference/web/hooks/">Hooks & Signals</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/property-editor/">Property editor</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/coordinates/">Coordinates</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Server</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/server/">Server</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/web/firebase/">Firebase</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Documentation</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../TechnicalDocs/reference/documentation/">Documentation</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Aether : Spatial Behavior Software Suite</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">User Guides</li>
+          <li class="breadcrumb-item">Setup</li>
+      <li class="breadcrumb-item active">Standalone Server - Raspberry Pi</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/pbarch/testbed-v4/edit/main/docs/UserGuides/SettingUp/StandaloneServer.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="standalone-server-raspberry-pi">Standalone Server - Raspberry Pi<a class="headerlink" href="#standalone-server-raspberry-pi" title="Permanent link">&para;</a></h1>
+<h3 id="initial-setup">Initial Setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h3>
+<p>A standalone Server can be quickly created using a pre-made Raspberry Pi image. (Contact PBSI for access to a pre built image)</p>
+<p>This Image can be flashed to a 32GB SD card using the Raspberry Pi imager. The image has been tested with a Raspberry Pi 5 (4GB RAM) and a Raspberry Pi 4 (4GB of RAM).</p>
+<p>The Pi is configured with a desktop environment but should be able to be used primarily remotely without a display, mouse or keyboard.</p>
+<p>After starting up the PI a new WiFi network will appear called "Aether-Local". Connecting to this network will give you access to Aether. If the Pi is also connected to the internet via Ethernet then the wireless Aether-Local network will also provide internet access.</p>
+<p>Once a device is connected to the Aether-Local network it can access the Aether interface by opening a web browser (preferably Chrome) and going to: http://aether:3022/ this should open the Aether Login page:</p>
+<p><img src="../assets/aetherlogin.png" style="width: auto;" /></p>
+<p>An administrator user will be configured for you and credentials provided with the pre-built image.</p>
+<p>Once logged in you can navigate to the Dashboard Panel to see connected Node Controllers.</p>
+<h3 id="adding-node-controllers">Adding Node Controllers.<a class="headerlink" href="#adding-node-controllers" title="Permanent link">&para;</a></h3>
+<p>Aether's Node Controllers are the distributed devices co-ordinated by the Aether interface. Custom Node Controller PCB's developed by PBSI can be used, or an Adafruit ESP32 Huzzah Feather can be configured as a Node Controller.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A standalone server will have a maximum device limit of between 8-12 connected devices, due to the limitations of the Raspberry Pi's Wifi card. See <a href="./#expanding-the-number-of-connected-devices">Expanding the Number of Connected Devices</a> below for how to expand this setup beyond this limit.</p>
+</div>
+<h3 id="troubleshooting-the-standalone-server">Troubleshooting the Standalone Server:<a class="headerlink" href="#troubleshooting-the-standalone-server" title="Permanent link">&para;</a></h3>
+<p>On the Aether-Local network you can access a terminal on the PI via SSH. Open a command prompt and enter
+<code>ssh aether@aether</code> the password for SSH to the Pi will be provided with the Image.</p>
+<p>To access the Aether Server logs use the command</p>
+<p><code>pm2 logs server</code></p>
+<p>To stop and start the server use:
+<code>pm2 stop server</code> and <code>pm2 start server</code></p>
+<p>if the server was working well but has crashed and won't restart its possible that the database has been corrupted. You can restore to the last functional state by navigating to the server directory with: <code>cd testbed-v4</code> and running: <code>git restore .</code></p>
+<h3 id="expanding-the-number-of-connected-devices">Expanding the Number of Connected Devices<a class="headerlink" href="#expanding-the-number-of-connected-devices" title="Permanent link">&para;</a></h3>
+<p>To expand the number of possible connected devices, a Router running in Access Point Mode, can be used to host the Aether-Local Wifi network:</p>
+<ol>
+<li>
+<p>Follow your Router manufacturer's instructions to setup Access Point Mode, and set the router's SSID to <code>Aether-Local</code> its Security to <code>WPA2</code> (Ensure the WPA2 Password matches the password defined in the firmware's <code>aether_config.h</code> file) and its IP Address to <code>172.23.4.2</code>.</p>
+</li>
+<li>
+<p>Connect the WAN port of your router to the Ethernet Port on the Raspberry Pi</p>
+</li>
+<li>
+<p>Setup the Raspberry Pi to use its Ethernet connection as a bridge via the network manager using the following command <code>sudo nmcli connection add type ethernet con-name PiBridge ifname eth0 ipv4.method shared</code></p>
+</li>
+<li>
+<p>Setup the IP Address of the ethernet bridge <code>sudo nmcli connection modify PiBridge ipv4.addresses 172.23.4.1/24</code></p>
+</li>
+<li>
+<p>Setup the DHCP range of the bridge connection <code>sudo nmcli connection modify PiBridge ipv4.shared-dhcp-range "172.23.4.10,172.23.4.254</code></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure you disable the Wifi Access point that is running on the Pi. You can also use the Pi's wifi to connect to another internet enabled Wifi network to allow for remote access to the the Raspberry Pi if desired.</p>
+</div>
+              
+            </div>
+          </div><footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+          <a href="../Setup/" class="btn btn-neutral float-left" title="Aether Server Setup - Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          <a href="../CustomServer/" class="btn btn-neutral float-right" title="Custom Server">Next <span class="icon icon-circle-arrow-right"></span></a>
+      </div>
+  
+    <hr/>
+  
+    <div role="contentinfo">
+      <!-- Copyright etc -->
+    </div>
+  
+    Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    <p><small>Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 29, 2026 22:34:52 UTC">July 29, 2026</span></small></p>
+    
+    
+</footer>
+  
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/pbarch/testbed-v4" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../CustomServer/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

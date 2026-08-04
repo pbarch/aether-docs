@@ -1,0 +1,57 @@
+/* Core structure for collapsible elements */
+details.admonition {
+    display: block;
+    margin: 1.5625em 0;
+    padding: 0;
+    border: 1px solid #e1e4e5;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Header style acting as the clickable toggle link */
+details.admonition summary {
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #f3f6f6;
+    border-bottom: 1px solid #e1e4e5;
+    outline: none;
+    list-style: none; /* Hides default HTML arrow */
+}
+
+/* Fallback to hide default arrow in WebKit browsers */
+details.admonition summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom indicator icon */
+details.admonition summary::before {
+    content: "►";
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+    font-size: 0.8em;
+    color: #555;
+}
+
+/* Rotate icon when open */
+details.admonition[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* Content block styling inside the box */
+details.admonition > *:not(summary) {
+    padding: 15px;
+    margin: 0;
+}
+
+/* Color Coding by Type (Optional Styling Overrides) */
+details.admonition.note summary {
+    background-color: #e7f2fa;
+    border-bottom: 1px solid #b4d5ec;
+}
+details.admonition.warning summary {
+    background-color: #ffeded;
+    border-bottom: 1px solid #ffd1d1;
+}

@@ -1,0 +1,44 @@
+:root {
+  --md-primary-fg-color:        rgb(92, 87, 87);
+  --md-primary-fg-color--light: rgb(92, 87, 87);
+  --md-primary-fg-color--dark:  rgb(92, 87, 87);
+  --md-accent-fg-color:        rgb(33, 125, 114);
+  --md-accent-fg-color--light: rgb(33, 125, 114);
+  --md-accent-fg-color--dark:  rgb(33, 125, 114);
+  --md-typeset-a-color:        rgb(33, 125, 114);
+}
+
+h1 {
+    color:  rgb(33, 125, 114);
+}
+
+.rst-content h4{
+  margin-block-end: 0px;
+  margin-bottom: 0px;
+  font-size: larger;
+  color:  rgb(33, 125, 114);
+}
+
+
+strong {
+    font-weight: bold;
+    color:  rgb(33, 125, 114);
+  }
+
+
+/* Ensure table cells wrap text properly and use full width */
+.wy-table-responsive table td, 
+.wy-table-responsive table th {
+    white-space: normal !important;
+}
+
+.wy-table-responsive {
+    margin-bottom: 24px;
+    max-width: 100%;
+    overflow: visible !important;
+}
+
+li::marker {
+  font-weight: bold;
+  color:  rgb(33, 125, 114);
+}
